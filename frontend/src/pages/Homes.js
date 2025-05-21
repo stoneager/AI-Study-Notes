@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 export default function Home() {
   const token = localStorage.getItem('token');
+  console.log("Token stored:", res.data.token);
+
   const API_BASE_URL = process.env.REACT_APP_BASE_URL;
   let userId = '';
   let username = "User";
