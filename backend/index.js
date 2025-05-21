@@ -14,7 +14,7 @@ app.use(cors());
 dotenv.config();
 
 const MONGO_URL = process.env.MONGO_URL
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 
 mongoose.connect(MONGO_URL).then(()=>{
     console.log("Database Connected");
