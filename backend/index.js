@@ -9,7 +9,11 @@ import cors from "cors";
 
 const app = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://ai-study-notes-1.onrender.com', // ✅ frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 
 dotenv.config();
 
