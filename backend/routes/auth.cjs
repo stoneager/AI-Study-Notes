@@ -26,8 +26,7 @@ router.post('/register', async (req, res) => {
         // Create new user
         const user = new User({ username, email, password });
         await user.save();
-        console.log("Signing token with secret:", process.env.JWT_SECRET);
-        console.log("User:", user);
+        
         res.status(201).json({ message: 'User created successfully' });
     } catch (err) {
         console.error(err);
