@@ -2,7 +2,7 @@ import express from 'express';
 import multer from 'multer';
 import pdfParse from 'pdf-parse/lib/pdf-parse.js';
 import dotenv from "dotenv";
-import Flashcard from '../models/flashcard.js';
+import Flashcard from '../models/Flashcard.js';
 import Deck from '../models/deck.js';
 import fs from "fs/promises";
 import { GoogleGenAI } from "@google/genai/node"; 
