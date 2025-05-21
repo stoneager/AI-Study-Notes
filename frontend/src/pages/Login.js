@@ -12,7 +12,9 @@ export default function Login() {
     e.preventDefault();
     try {
       const res = await axios.post(`${API_BASE_URL}/api/auth/login`, { email, password });
-      
+      console.log("Signing token with secret:", process.env.JWT_SECRET);
+      console.log("User:", user);
+
       localStorage.setItem('token', res.data.token);
       navigate("/");
     } catch (err) {
