@@ -4,6 +4,7 @@ import { jwtDecode } from 'jwt-decode';
 import Flashcard from './Flashcard';
 
 export default function DecksPage() {
+  const API_BASE_URL = process.env.REACT_APP_BASE_URL;
   const token = localStorage.getItem('token');
   let userId = '';
   if (token) {
@@ -18,7 +19,7 @@ export default function DecksPage() {
   useEffect(() => {
     const fetchDecks = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/flashcards/decks?userId=${userId}`);
+        const res = await axios.get(`${API_BASE_URL}/api/flashcards/decks?userId=${userId}`);
         setDecks(res.data);
       } catch (err) {
         console.error("Failed to fetch decks:", err);
@@ -31,7 +32,7 @@ export default function DecksPage() {
   const loadFlashcards = async (deckId) => {
     setSelectedDeckId(deckId);
     try {
-      const res = await axios.get(`http://localhost:5000/api/flashcards/decks/${deckId}/cards`);
+      const res = await axios.get(`${API_BASE_URL}/api/flashcards/decks/${deckId}/cards`);
       setFlashcards(res.data);
     } catch (err) {
       console.error("Failed to fetch flashcards:", err);

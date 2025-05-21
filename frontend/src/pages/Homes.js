@@ -2,10 +2,9 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
-
 export default function Home() {
   const token = localStorage.getItem('token');
-  
+  const API_BASE_URL = process.env.REACT_APP_BASE_URL;
   let userId = '';
   let username = "User";
 
@@ -38,7 +37,7 @@ export default function Home() {
 
     try {
       setLoading(true);
-      await axios.post('http://localhost:5000/api/flashcards/generate-flashcards', formData, {
+      await axios.post(`${API_BASE_URL}/api/flashcards/generate-flashcards`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
